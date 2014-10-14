@@ -1,3 +1,8 @@
+/*
+ This is a choose-your-own-adventure game written by Kody Wildfeuer
+
+ 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,6 +13,7 @@ void upStairs();
 
 void dead();
 void sleep();
+void win();
 
 
 void start()
@@ -44,6 +50,12 @@ void sleep()
 		printf("In disbelief of the situation occuring, you decide rest is the best option.\n");
 		printf("A creature curls up next to you to take a nap before his next meal.");
 		dead();
+}
+
+void win()
+{
+	printf("\n\n              YOU HAVE ESCAPED!\n\n");
+	printf("Thank you for playing!\n\n");
 }
 
 
@@ -89,16 +101,21 @@ void stairCase()
 
 	if(choice == 1)
 	{
-		printf("Just as the door is about to open, you slam it as hard as humanly possible. A harsh shriek pierces through the staircase.\n");
+		printf("Just as the door is about to open, you slam it as hard as humanly possible.\n");
+		printf("A harsh shriek pierces through the staircase.\n");
 		printf("While running up the stairs the broken tenticle tries to grab your leg.\n");
 		upStairs();
 
-	}
-	
-	if(choice == 2)
+	}else if(choice == 2)
 	{
 		upStairs();
-	}
+	}else if(choice == 3)
+    {
+        printf("With your tummy growling you decide the bite the tentacle.\n");
+        printf("With a piercing growl the tentacle wraps around you and the door is forced open\n");
+        printf("The darkness and the creature appear to be one... and that is all you see.\n");
+        dead();
+    }
 
 }
 
@@ -108,8 +125,8 @@ void upStairs()
 
 	printf("When you reach the upstairs, you come across a lavish room with baroque furniture, ");
 	printf("red wallpapered interior, and classical music playing on a old phonograph.\n");
-	printf("The fireplace smolders but the room is without life.");
-	printf("What should you do?\n1)  Jump out of the window\n2)  Look around\n3)  Go back downstairs\n");
+	printf("The fireplace smolders but the room is without life.\n");
+	printf("What should you do?\n1)  Jump out of the window\n2)  Climb up chimney\n3)  Go back downstairs\n");
 
 	scanf("%d", &choice);
 
@@ -122,6 +139,13 @@ void upStairs()
 	}else if(choice == 2)
 	{
 
+		printf("You put out the fire by emptying the water from a flower vase. The fire is smothered.\n");
+		printf("You squeeze your way into the chimney and squirm your way to the top.\n");
+		printf("After you reach the exit of the chimney you slip and slide down the roof.\n");
+		printf("Just before you fall off of the roof, your arm catches a ridge and steadies you\n");
+		printf("You hold on until you catch your breath, your heart pumping in your chest\n");
+		printf("You find your way off of the roof and run for safety, and away from danger!\n");
+		win();
 	}else if(choice == 3)
 	{
 		printf("Just as you reopen the basement door, the whiplike tenticles engulf you and pull you into the darkness.\n");
@@ -131,12 +155,9 @@ void upStairs()
 	}
 
 
-
 }
 
 int main()
 {
-	
 	start();
-
 }
